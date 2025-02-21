@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Monitor - News</title>
+    <title>AI Monitor - Future News</title>
     <style>
         /* Global Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            direction: ltr;
-            text-align: left;
-            background-color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+            background: #0a0f1a;
+            color: #dce1e8;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         /* Header */
         .header {
-            background-color: #343a40;
+            background: linear-gradient(90deg, #1c2b4b, #283b65);
             color: white;
-            padding: 15px 0;
+            padding: 20px;
             text-align: center;
             font-size: 24px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(28, 43, 75, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         /* Container */
@@ -30,27 +36,27 @@
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
-        }
-
-        /* Articles Grid */
-        .articles-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            padding: 40px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 25px;
         }
 
-        /* Article Box */
+        /* Glassmorphism Article Box */
         .article {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(44, 61, 89, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(44, 61, 89, 0.5);
             overflow: hidden;
-            transition: transform 0.3s ease-in-out;
+            width: 350px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .article:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px rgba(44, 61, 89, 0.8);
         }
 
         /* Article Image */
@@ -58,40 +64,62 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-bottom: 3px solid #1c2b4b;
         }
 
         /* Article Content */
         .article-content {
             padding: 15px;
+            text-align: center;
         }
 
         .article h2 {
-            font-size: 20px;
-            color: #333;
+            font-size: 18px;  /* Smaller title */
+            color: #b8c7e3;   /* Soft blue */
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .article p {
             font-size: 14px;
-            color: #555;
+            color: #cbd1d8;
             line-height: 1.6;
-            max-height: 100px;
+            max-height: 90px;
             overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
-        /* Read More Button */
+        /* Futuristic Read More Button */
         .read-more {
             display: inline-block;
             margin-top: 10px;
             font-size: 14px;
-            color: #007BFF;
             font-weight: bold;
+            color: #dce1e8;
+            padding: 10px 20px;
+            border-radius: 50px;
             text-decoration: none;
+            background: linear-gradient(45deg, #1c2b4b, #283b65);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 10px rgba(44, 61, 89, 0.7);
+            text-align: center;
         }
 
         .read-more:hover {
-            text-decoration: underline;
+            background: linear-gradient(45deg, #283b65, #1c2b4b);
+            box-shadow: 0 0 15px rgba(44, 61, 89, 1);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #1c2b4b, #283b65);
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(28, 43, 75, 0.8);
         }
     </style>
 </head>
@@ -99,23 +127,26 @@
 
     <!-- Header -->
     <div class="header">
-        AI Monitor - Latest News
+        AI Monitor - Future News
     </div>
 
     <!-- Main Content -->
     <div class="container">
-        <div class="articles-container">
-            {% for article in articles %}
-            <div class="article">
-                <img src="{{ article.image_url }}" alt="Article Image">
-                <div class="article-content">
-                    <h2>{{ article.title }}</h2>
-                    <p>{{ article.content[:200] }}...</p>
-                    <a class="read-more" href="/article/{{ article.id }}">Read more</a>
-                </div>
+        {% for article in articles %}
+        <div class="article">
+            <img src="{{ article.image_url }}" alt="Article Image">
+            <div class="article-content">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.content[:200] }}...</p>
+                <a class="read-more" href="/article/{{ article.id }}">Read More</a>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 AI Monitor - The Future of News
     </div>
 
 </body>
