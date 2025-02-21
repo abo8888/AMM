@@ -1,0 +1,17 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+.news-card img {
+    height: 200px;
+    object-fit: cover;
+}
+.news-card .card-body {
+    min-height: 250px;
+}
