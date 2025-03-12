@@ -3,7 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-DATABASE_URL = "postgresql://db_amm_user:Jose0OSs5MyWmFTbrWdDhO1xCUKvGauj@dpg-curr0s23esus73ffq1ng-a.oregon-postgres.render.com:5432/db_amm"
+DATABASE_URL = "postgresql://amm_db_m6q5_user:kONP8nauK90cIdbZ1bIoXMdpCrgxc9Zc@dpg-cv8tavd6l47c73837g90-a.oregon-postgres.render.com:5432/amm_db_m6q5"
 
 def get_articles():
     """ Fetch all articles from the database """
